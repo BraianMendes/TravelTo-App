@@ -22,7 +22,7 @@
       "**/*"
     ],
     "android": {
-      "package": "com.tsunami.LoginScreenProfessionalAnimation"
+      "package": "com.tsunami.travel2"
     }
   }
 }

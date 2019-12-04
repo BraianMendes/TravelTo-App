@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Dimensions, TextInput } from 'react-native';
+import { View, Text, StyleSheet, Dimensions, TextInput, Button } from 'react-native';
 
 // Reanimated >> GestureHandler
 import Animated, { Easing } from 'react-native-reanimated';
@@ -7,6 +7,11 @@ import { TapGestureHandler, State } from 'react-native-gesture-handler';
  
 // React-Native-SVG
 import Svg, { Image, Circle, ClipPath } from 'react-native-svg';
+
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
+
+import HomeScreen from './HomeScreen';
 
 // Const Tamanho da tela
 const { width, height } = Dimensions.get('window');
@@ -60,6 +65,7 @@ function runTiming(clock, value, dest) {
   ]);
 }
 class TemplateLogin extends Component {
+
   constructor() {
     super();
 
@@ -127,6 +133,7 @@ class TemplateLogin extends Component {
   }
   render() {
     return (
+
       <View
         style={{
           flex: 1,
@@ -164,7 +171,7 @@ class TemplateLogin extends Component {
                 transform: [{ translateY: this.buttonY }]
               }}
             >
-              <Text style={{ fontSize: 20, fontWeight: 'bold' }}>SIGN IN</Text>
+              <Text style={{ fontSize: 20, fontWeight: 'bold' }}>ENTRAR</Text>
             </Animated.View>
           </TapGestureHandler>
 
@@ -177,7 +184,7 @@ class TemplateLogin extends Component {
             }}
           >
             <Text style={{ fontSize: 20, fontWeight: 'bold', color: 'white' }}>
-              SIGN IN WITH FACEBOOK
+              ENTRAR COM FACEBOOK
             </Text>
           </Animated.View>
 
@@ -219,7 +226,11 @@ class TemplateLogin extends Component {
             />
 
             <Animated.View style={styles.button}>
-              <Text style={{fontSize:20, fontWeight:'bold'}}>ENTRAR</Text>
+              <Button
+                title="ENTRAR"
+                onPress={() => this.props.navigation.navigate('HomeScreen')}              
+                style={{fontSize:20, fontWeight:'bold'}}
+              />
             </Animated.View>
 
           </Animated.View>
